@@ -12,8 +12,6 @@ const footerLinks = {
   resources: [
     { href: "#skills", label: "Skills" },
     { href: "#contact", label: "Contact" },
-    { href: "/resume.pdf", label: "Resume" },
-    { href: "/blog", label: "Blog" },
   ],
 };
 import Logo from "@/assets/Logo.png";
