@@ -9,8 +9,8 @@ const skillCategories = [
   {
     title: "Frontend",
     skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 90 },
+      { name: "React / Next.js", level: 90 },
+      { name: "TypeScript", level: 80 },
       { name: "JavaScript (ES6+)", level: 95 },
       { name: "HTML5 / CSS3", level: 98 },
       { name: "Tailwind CSS", level: 92 },
@@ -23,16 +23,17 @@ const skillCategories = [
       { name: "Redux / Zustand", level: 85 },
       { name: "React Query", level: 87 },
       { name: "Webpack / Vite", level: 80 },
-      { name: "Jest / Testing Library", level: 82 },
+      { name: "Shadcn UI", level: 85 },
+      
     ],
   },
   {
     title: "Design & Other",
     skills: [
-      { name: "Figma", level: 85 },
+      { name: "Figma", level: 70 },
       { name: "Git / GitHub", level: 90 },
       { name: "REST APIs / GraphQL", level: 88 },
-      { name: "Node.js", level: 75 },
+      { name: "Node.js", level: 60 },
       { name: "CI/CD Pipelines", level: 78 },
     ],
   },

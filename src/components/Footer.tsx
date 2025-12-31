@@ -16,12 +16,15 @@ const footerLinks = {
     { href: "/blog", label: "Blog" },
   ],
 };
-
+import Logo from "@/assets/Logo.png";
 const socialLinks = [
-  { href: "https://github.com", icon: Github, label: "GitHub" },
-  { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://twitter.com", icon: Twitter, label: "Twitter" },
-  { href: "mailto:hello@johndoe.dev", icon: Mail, label: "Email" },
+  { href: "https://github.com/MEDO151", icon: Github, label: "GitHub" },
+  {
+    href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+    icon: Linkedin,
+    label: "LinkedIn",
+  },
+  { href: "mailto:mohamedxalkafrawy@gmail.com", icon: Mail, label: "Email" },
 ];
 
 export const Footer = () => {
@@ -47,7 +50,7 @@ export const Footer = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              JD
+              <img src={Logo} alt="main-logo" className="w-16 h-16" />
             </motion.a>
             <p className="text-muted-foreground max-w-sm mb-6">
               Frontend Developer crafting exceptional digital experiences with

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
@@ -63,7 +63,10 @@ export const HeroSection = () => {
               <a href="#projects">View My Work</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="#contact">Get In Touch</a>
+              <a href="Mohamed's-cv.pdf" download className="gap-2">
+                <Download size={20} />
+                Download CV
+              </a>
             </Button>
           </motion.div>
 
@@ -75,13 +78,21 @@ export const HeroSection = () => {
             className="flex items-center justify-center gap-4"
           >
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
+              {
+                icon: Github,
+                href: "https://github.com/MEDO151",
+                label: "GitHub",
+              },
               {
                 icon: Linkedin,
-                href: "https://linkedin.com",
+                href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
                 label: "LinkedIn",
               },
-              { icon: Mail, href: "mailto:hello@johndoe.dev", label: "Email" },
+              {
+                icon: Mail,
+                href: "mailto:mohamedxalkafrawy@gmail.com",
+                label: "Email",
+              },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}

@@ -8,55 +8,12 @@ import {
 } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured e-commerce solution with real-time inventory, payment processing, and admin dashboard. Built for scale with modern architecture.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "Stripe"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: true,
-  },
-  {
-    title: "Analytics Dashboard",
-    description:
-      "Real-time analytics platform with interactive charts, custom reporting, and team collaboration features.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    tech: ["Next.js", "D3.js", "Tailwind", "Supabase"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: true,
-  },
-  {
-    title: "SaaS Landing Page",
-    description:
-      "High-converting landing page with smooth animations, optimized performance, and A/B testing integration.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tech: ["React", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: false,
-  },
-  {
-    title: "Task Management App",
-    description:
-      "Collaborative task management with real-time updates, drag-and-drop, and team workspaces.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-    tech: ["React", "Redux", "Firebase", "Material UI"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: false,
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { projects } from "@/data/projects";
 
 export const ProjectsSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="projects" className="py-16 md:py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-6 lg:px-8">
@@ -79,10 +36,13 @@ export const ProjectsSection = () => {
           className="grid md:grid-cols-2 gap-8"
           staggerDelay={0.15}
         >
-          {projects.map((project, index) => (
-            <StaggerItem key={project.title}>
+          {projects.map((project) => (
+            <StaggerItem key={project.id}>
               <ScaleOnHover>
-                <article className="group rounded-2xl bg-card border border-border/50 overflow-hidden card-gradient border-gradient hover:border-primary/30 transition-all duration-500">
+                <article
+                  onClick={() => navigate(`/project/${project.id}`)}
+                  className="group rounded-2xl bg-card border border-border/50 overflow-hidden card-gradient border-gradient hover:border-primary/30 transition-all duration-500 cursor-pointer"
+                >
                   {/* Project Image */}
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -96,6 +56,7 @@ export const ProjectsSection = () => {
                     <motion.div
                       className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       initial={false}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <a
                         href={project.githubUrl}
@@ -119,7 +80,7 @@ export const ProjectsSection = () => {
 
                     {project.featured && (
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                        Featured
+                        {project.featured}
                       </Badge>
                     )}
                   </div>
@@ -139,7 +100,7 @@ export const ProjectsSection = () => {
 
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
+                      {project.tech.slice(0, 6).map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 text-xs rounded-full bg-muted text-muted-foreground"
@@ -158,7 +119,7 @@ export const ProjectsSection = () => {
         <AnimatedSection delay={0.4} className="mt-12 text-center">
           <Button variant="heroOutline" size="lg" asChild>
             <a
-              href="https://github.com"
+              href="https://github.com/MEDO151"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -3,70 +3,69 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/AnimatedSection";
-import { Building2, Calendar, MapPin, Briefcase, Rocket } from "lucide-react";
+import {
+  Building2,
+  Calendar,
+  MapPin,
+  Briefcase,
+  Rocket,
+  GraduationCap,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: " Frontend Developer",
-    company: "TechCorp Inc.",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
+    role: "Intensive Training Program (ITP)",
+    company: "ITI, Damanhur Branch",
+    location: "Damanhur, Egypt",
+    period: "July 2025 – Dec 2025",
     description:
-      "Leading frontend architecture for enterprise SaaS products. Mentoring junior developers and establishing best practices for code quality and performance.",
+      "Frontend Cross Platform Mobile Application Track. An intensive program specializing in modern web and mobile application development, focusing on cross-platform frameworks and advanced frontend architectures.",
     highlights: [
-      "Led team of 5 developers",
-      "Reduced load time by 60%",
-      "Implemented design system",
+      "Cross-Platform Mobile Dev",
+      "Frontend Architecture",
+      "Enterprise Application Track",
     ],
-    type: "fulltime",
-    icon: Briefcase,
+    type: "education",
+    icon: Rocket,
   },
   {
-    role: "Frontend Developer",
-    company: "StartupXYZ",
-    location: "Remote",
-    period: "2020 - 2022",
+    role: "Front-End Diploma",
+    company: "Route Academy",
+    location: "Cairo, Egypt",
+    period: "Sep 2023 – Apr 2024",
     description:
-      "Built and maintained multiple React applications from scratch. Collaborated closely with designers and product managers to deliver exceptional user experiences.",
+      "Completed a comprehensive course covering HTML, CSS, JavaScript, and Angular. Covered advanced topics including Bootstrap, OOP, API integration, TypeScript, and version control.",
     highlights: [
-      "Built 3 products from 0 to 1",
-      "200k+ monthly active users",
-      "A/B testing implementation",
+      "Angular & TypeScript",
+      "Git & GitHub Workflow",
+      "Modern CSS (Sass, Bootstrap)",
     ],
-    type: "fulltime",
-    icon: Rocket,
+    type: "education",
+    icon: GraduationCap,
   },
   {
     role: "Freelance Developer",
     company: "Self-Employed",
     location: "Worldwide",
-    period: "2019 - Present",
+    period: "2025 - Present",
     description:
       "Working with clients globally to deliver high-quality web solutions. Specializing in React development, performance optimization, and modern UI/UX.",
-    highlights: [
-      "50+ completed projects",
-      "100% client satisfaction",
-      "Long-term partnerships",
-    ],
+    highlights: ["100% client satisfaction", "Long-term partnerships"],
     type: "freelance",
     icon: Briefcase,
   },
   {
-    role: "Junior Developer",
-    company: "Digital Agency",
-    location: "New York, NY",
-    period: "2018 - 2020",
+    role: "Computer Science",
+    company: "Damanhour University",
+    location: "Damanhour, Egypt",
+    period: "2020 - 2024",
     description:
-      "Started my professional journey building responsive websites and web applications. Gained experience working with diverse clients and tight deadlines.",
-    highlights: [
-      "Fast learner",
-      "Cross-functional collaboration",
-      "Agile methodology",
-    ],
-    type: "fulltime",
-    icon: Briefcase,
+      "Bachelor's Degree in Computer Science, focusing on algorithms, data structures, and software engineering. Completed a high-impact graduation project.",
+    highlights: ["Graduation Project: MidCare (A+)", "Degree: 2.9 GPA"],
+    type: "education",
+    icon: GraduationCap,
   },
 ];
 
@@ -101,25 +100,22 @@ export const ExperienceSection = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <StaggerContainer className="relative" staggerDelay={0.15}>
             {/* Timeline Line with gradient */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent md:-translate-x-px" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-primary to-transparent md:-translate-x-1/2" />
 
             {experiences.map((exp, index) => (
               <StaggerItem key={index}>
                 <div
-                  className={`relative flex flex-col md:flex-row gap-8 mb-16 last:mb-0 ${
+                  className={`relative flex flex-col md:flex-row gap-24 mb-16 last:mb-0 ${
                     index % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <motion.div
-                    className="absolute left-4 md:left-1/2 w-8 h-8 -translate-x-1/2 mt-8"
-                    whileHover={{ scale: 1.2 }}
-                  >
-                    <div className="w-full h-full rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                      <exp.icon size={14} className="text-primary" />
+                  <motion.div className="absolute left-4 md:left-[50%] w-10 h-10 -translate-x-[50%] mt-8 z-10 hover:scale-125 transition-all duration-300">
+                    <div className="w-full h-full rounded-full bg-background border-4 border-primary/20 flex items-center justify-center shadow-lg shadow-primary/30">
+                      <div className="w-3 h-3 rounded-full bg-primary" />
                     </div>
                     {/* Pulse animation for current role */}
                     {index === 0 && (
@@ -134,13 +130,13 @@ export const ExperienceSection = () => {
                   {/* Content */}
                   <div
                     className={`flex-1 ml-12 md:ml-0 ${
-                      index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"
+                      index % 2 === 0
+                        ? "md:pr-12 md:text-right"
+                        : "md:pl-12 md:text-left"
                     }`}
                   >
                     <motion.div
-                      className={`group p-6 md:p-8 rounded-3xl bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 ${
-                        index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                      }`}
+                      className={`group mb-6 p-6 md:p-8 rounded-3xl bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500`}
                       whileHover={{
                         y: -5,
                         boxShadow:
@@ -150,7 +146,9 @@ export const ExperienceSection = () => {
                       {/* Period Badge */}
                       <div
                         className={`flex items-center gap-2 mb-4 ${
-                          index % 2 === 0 ? "md:justify-end" : ""
+                          index % 2 === 0
+                            ? "md:justify-end"
+                            : "md:justify-start"
                         }`}
                       >
                         <Badge
@@ -173,11 +171,13 @@ export const ExperienceSection = () => {
 
                       <div
                         className={`flex items-center gap-4 text-sm text-muted-foreground mb-4 flex-wrap ${
-                          index % 2 === 0 ? "md:justify-end" : ""
+                          index % 2 === 0
+                            ? "md:justify-end"
+                            : "md:justify-start"
                         }`}
                       >
                         <span className="flex items-center gap-1.5 bg-muted/50 px-3 py-1 rounded-full">
-                          <Building2 size={14} className="text-primary" />
+                          <exp.icon size={14} className="text-primary" />
                           {exp.company}
                         </span>
                         <span className="flex items-center gap-1.5 bg-muted/50 px-3 py-1 rounded-full">
@@ -192,7 +192,9 @@ export const ExperienceSection = () => {
 
                       <div
                         className={`flex flex-wrap gap-2 ${
-                          index % 2 === 0 ? "md:justify-end" : ""
+                          index % 2 === 0
+                            ? "md:justify-end"
+                            : "md:justify-start"
                         }`}
                       >
                         {exp.highlights.map((highlight) => (

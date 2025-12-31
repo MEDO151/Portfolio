@@ -19,22 +19,25 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@johndoe.dev",
-    href: "mailto:hello@johndoe.dev",
+    value: "mohamedxalkafrawy@gmail.com",
+    href: "mailto:mohamedxalkafrawy@gmail.com",
   },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA", href: null },
+  { icon: MapPin, label: "Location", value: "Alexandria, Egypt", href: null },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "(0020)1013542677",
+    href: "tel:01013542677",
   },
 ];
 
 const socialLinks = [
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+  { icon: Github, label: "GitHub", href: "https://github.com/MEDO151" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+  },
 ];
 
 export const ContactSection = () => {
@@ -44,14 +47,45 @@ export const ContactSection = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "fc12ebc7-ad25-4d67-ab7d-a150c168acc4",
+          ...formData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.message || "Something went wrong");
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -145,9 +179,10 @@ export const ContactSection = () => {
                 variant="hero"
                 size="lg"
                 className="w-full sm:w-auto"
+                disabled={isSubmitting}
               >
                 <Send size={18} className="mr-2" />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </SlideIn>
