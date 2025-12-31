@@ -7,9 +7,9 @@ import ECommerse2 from "@/assets/E-commerce2.png";
 import Maha from "@/assets/Maha.png";
 import Maha1 from "@/assets/Maha1.png";
 import Maha2 from "@/assets/Maha2.png";
-import Ashraf from "@/assets/Ashraf.png";
-import Ashraf1 from "@/assets/Ashraf1.png";
-import Ashraf2 from "@/assets/Ashraf2.png";
+import Ashraf from "@/assets/ashraf.png";
+import Ashraf1 from "@/assets/ashraf1.png";
+import Ashraf2 from "@/assets/ashraf2.png";
 
 export interface Project {
   id: string;
