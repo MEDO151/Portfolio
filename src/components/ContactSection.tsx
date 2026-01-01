@@ -36,8 +36,9 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+    href: "https://www.linkedin.com/in/mohamed-alkafrawy-58892529b",
   },
+  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
 ];
 
 export const ContactSection = () => {
@@ -77,7 +78,7 @@ export const ContactSection = () => {
       } else {
         throw new Error(result.message || "Something went wrong");
       }
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",
@@ -95,9 +96,12 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-8">
-        <AnimatedSection className="mb-16 text-center">
+    <section
+      id="contact"
+      className="py-16 md:py-24 lg:py-32 overflow-hidden overflow-x-hidden"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full overflow-x-hidden">
+        <AnimatedSection className="mb-16 text-center overflow-x-hidden">
           <p className="text-primary font-medium mb-4 tracking-wide uppercase text-sm">
             Get In Touch
           </p>
@@ -110,9 +114,8 @@ export const ContactSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <SlideIn direction="left">
+        <div className="grid lg:grid-cols-2 gap-8 mx-auto max-w-full overflow-x-hidden">
+          <SlideIn direction="left" className="overflow-x-hidden">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -145,6 +148,7 @@ export const ContactSection = () => {
                   />
                 </div>
               </div>
+
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">
                   Subject
@@ -159,6 +163,7 @@ export const ContactSection = () => {
                   className="bg-muted/50 border-border/50 focus:border-primary"
                 />
               </div>
+
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
                   Message
@@ -174,11 +179,12 @@ export const ContactSection = () => {
                   className="bg-muted/50 border-border/50 focus:border-primary resize-none"
                 />
               </div>
+
               <Button
                 type="submit"
                 variant="hero"
                 size="lg"
-                className="w-full sm:w-auto"
+                className="w-full"
                 disabled={isSubmitting}
               >
                 <Send size={18} className="mr-2" />
@@ -187,13 +193,13 @@ export const ContactSection = () => {
             </form>
           </SlideIn>
 
-          {/* Contact Info */}
-          <SlideIn direction="right">
+          <SlideIn direction="right" className="overflow-x-hidden">
             <div className="space-y-8">
-              <div className="p-8 rounded-2xl bg-card border border-border/50 card-gradient border-gradient">
+              <div className="p-8 rounded-2xl bg-card border border-border/50 card-gradient border-gradient overflow-hidden">
                 <h3 className="text-xl font-heading font-semibold mb-6">
                   Contact Information
                 </h3>
+
                 <div className="space-y-6">
                   {contactInfo.map((item) => (
                     <div key={item.label} className="flex items-start gap-4">
@@ -207,12 +213,12 @@ export const ContactSection = () => {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="font-medium hover:text-primary transition-colors"
+                            className="font-medium hover:text-primary transition-colors break-all"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="font-medium">{item.value}</p>
+                          <p className="font-medium break-all">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -220,11 +226,12 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="p-8 rounded-2xl bg-card border border-border/50 card-gradient border-gradient">
+              <div className="p-8 rounded-2xl bg-card border border-border/50 card-gradient border-gradient overflow-hidden">
                 <h3 className="text-xl font-heading font-semibold mb-6">
                   Follow Me
                 </h3>
-                <div className="flex gap-4">
+
+                <div className="flex gap-4 flex-wrap">
                   {socialLinks.map((social) => (
                     <motion.a
                       key={social.label}

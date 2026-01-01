@@ -24,7 +24,6 @@ const skillCategories = [
       { name: "React Query", level: 87 },
       { name: "Webpack / Vite", level: 80 },
       { name: "Shadcn UI", level: 85 },
-      
     ],
   },
   {
