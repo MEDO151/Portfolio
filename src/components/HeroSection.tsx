@@ -85,7 +85,7 @@ export const HeroSection = () => {
               },
               {
                 icon: Linkedin,
-                href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+                href: "https://www.linkedin.com/in/mohamed-alkafrawy-58892529b",
                 label: "LinkedIn",
               },
               {

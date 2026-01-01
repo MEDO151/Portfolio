@@ -15,7 +15,7 @@ const navLinks = [
 const socialLinks = [
   { href: "https://github.com/MEDO151", icon: Github, label: "GitHub" },
   {
-    href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+    href: "https://www.linkedin.com/in/mohamed-alkafrawy-58892529b",
     icon: Linkedin,
     label: "LinkedIn",
   },

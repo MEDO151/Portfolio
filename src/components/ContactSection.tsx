@@ -38,7 +38,6 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mohamed-alkafrawy-58892529b",
   },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
 ];
 
 export const ContactSection = () => {

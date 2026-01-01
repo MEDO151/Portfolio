@@ -18,7 +18,7 @@ import Logo from "@/assets/Logo.png";
 const socialLinks = [
   { href: "https://github.com/MEDO151", icon: Github, label: "GitHub" },
   {
-    href: "www.linkedin.com/in/mohamed-alkafrawy-58892529b",
+    href: "https://www.linkedin.com/in/mohamed-alkafrawy-58892529b",
     icon: Linkedin,
     label: "LinkedIn",
   },
@@ -59,12 +59,8 @@ export const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    social.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2.5 rounded-xl bg-muted/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   whileHover={{ y: -3, scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
