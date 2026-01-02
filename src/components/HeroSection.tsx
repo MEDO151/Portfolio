@@ -63,7 +63,7 @@ export const HeroSection = () => {
               <a href="#projects">View My Work</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="Mohamed's-cv.pdf" download className="gap-2">
+              <a href="Front-End Developer - CV - Mohamed Alkafrawy.pdf" download className="gap-2">
                 <Download size={20} />
                 Download CV
               </a>
