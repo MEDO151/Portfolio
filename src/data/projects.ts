@@ -86,7 +86,7 @@ export const projects: Project[] = [
     image: Maha,
     gallery: [Maha, Maha1, Maha2],
     tech: ["React","TypeScript", "Vite", "TailwindCSS", "Shadcn UI", "Moyasar", "Supabase"],
-    liveUrl: "https://maha-ad.netlify.app",
+    liveUrl: "https://maha-ad.vercel.app",
     githubUrl: "https://github.com/MEDO151/sessions_saas-maha",
     featured: "Freelance Project",
     category: "Web Application",
